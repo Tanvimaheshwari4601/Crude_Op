@@ -5,4 +5,6 @@ export class User {
     emailid: string;
     city: string;
     phonenumber: String;
+   
+    password:string;
 }
