@@ -1,10 +1,13 @@
 <nav class="navbar navbar-expand-sm bg-primary text-white navbar-dark">
-    <ul class = "navbar-nav">
+    <ul class = "navbar-nav w-100">
         <li class = "nav-item">
             <a routerLink="users" routerLinkActive="active" class="nav-link" >Users List</a>
         </li>
         <li class = "nav-item">
             <a routerLink="create-user" routerLinkActive="active" class="nav-link" >Add User</a>
         </li>
+        <li class="nav-item ms-auto me-2">
+            <button class="btn btn-light" (click)="logout()"> Logout</button>
+        </li>
     </ul>
-</nav>
+  </nav>

@@ -9,7 +9,11 @@ import { FormsModule } from '@angular/forms';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { LoginUserComponent } from './login-user/login-user.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeaderComponent } from './header/header.component';
+import { UserService } from './user.service';
+import { AuthenticationGuard } from './authentication.guard';
+import { HomepageComponent } from './homepage/homepage.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +23,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     UpdateUserComponent,
     UserDetailsComponent,
     LoginUserComponent,
-    DashboardComponent
+    HeaderComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    AuthenticationGuard
+  ],
   bootstrap: [AppComponent]
 }
 )

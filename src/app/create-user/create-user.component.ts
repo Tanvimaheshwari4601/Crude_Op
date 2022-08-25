@@ -11,6 +11,7 @@ import { UserService } from '../user.service';
 export class CreateUserComponent implements OnInit {
 
   user:User=new User();
+  registrationAPIerror :String;
   constructor(private userService: UserService,
     private router: Router) { }
 
@@ -21,7 +22,10 @@ export class CreateUserComponent implements OnInit {
       console.log(data);
       this.gotoUserList();
     },
-    error=>console.log(error));
+    error=>{console.log(error)
+    this.registrationAPIerror=error.error.message;
+
+    console.log(this.registrationAPIerror);  });
   }
 
   gotoUserList(){
@@ -32,6 +36,7 @@ export class CreateUserComponent implements OnInit {
     this.saveUser();
     
   }
+  
     
 
 }
