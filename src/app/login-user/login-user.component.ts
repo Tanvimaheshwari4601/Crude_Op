@@ -9,6 +9,7 @@ import { UserService } from '../user.service';
 })
 export class LoginUserComponent implements OnInit {
   user:User=new User();
+  loginApiError : String;
 
   constructor(private userService:UserService) { }
 
@@ -22,7 +23,15 @@ export class LoginUserComponent implements OnInit {
       console.log(data);
       
     },
-    error=>console.log(error));;
+
+    error=>{
+      console.log(error)
+      this.loginApiError=error.error.message;
+      console.log(this.loginApiError);
+      
+
+    
+    });;
     
   }
 
