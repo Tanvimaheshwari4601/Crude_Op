@@ -24,11 +24,11 @@ export class UserListComponent implements OnInit {
     });
   }
   userDetails(id: number){
-    this.router.navigate(['user-details', id]);
+    this.router.navigate(['homepage/user-details', id]);
   }
 
   updateUser(id: number){
-    this.router.navigate(['update-user', id]);
+    this.router.navigate(['homepage/update-user', id]);
   }
 
   deleteUser(id: number){

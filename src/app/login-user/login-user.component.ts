@@ -19,8 +19,6 @@ export class LoginUserComponent implements OnInit {
     
   }
   
-
-  
   onSubmit(){
     console.log(this.user);
     this.userService.loginUser(this.user.emailid, this.user.password).subscribe(data=>{

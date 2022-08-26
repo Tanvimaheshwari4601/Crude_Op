@@ -5,6 +5,7 @@ export class User {
     emailid: string;
     city: string;
     phonenumber: String;
+    role: String;
    
     password:string;
 }

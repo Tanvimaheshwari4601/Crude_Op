@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../user';
 import { UserService } from '../user.service';
@@ -9,11 +9,15 @@ import { UserService } from '../user.service';
   styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent implements OnInit {
-
+  
+  Roles=['Admin', 'User'];
   user:User=new User();
   registrationAPIerror :String;
   constructor(private userService: UserService,
-    private router: Router) { }
+    private router: Router,
+    private el:ElementRef) { 
+      // this.setup();
+    }
 
   ngOnInit(): void {
   }
@@ -27,6 +31,15 @@ export class CreateUserComponent implements OnInit {
 
     console.log(this.registrationAPIerror);  });
   }
+  // setup(){
+  //   const parent = this.el.nativeElement.parentNode;
+  //   const span = document.createElement('span');
+  //   span.innerHTML = `Show password`;
+  //   span.addEventListener('click' , (event)=>{
+  //     alert('you just clicked me, you need to toggle view')
+  //   });
+  //   parent.appendChild(span);
+  // }
 
   gotoUserList(){
     this.router.navigate(['/users']);
