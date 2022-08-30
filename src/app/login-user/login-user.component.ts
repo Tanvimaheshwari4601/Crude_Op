@@ -26,17 +26,12 @@ export class LoginUserComponent implements OnInit {
       localStorage.setItem('userData',JSON.stringify(data));
       localStorage.setItem('isloggedin','true');
       this.router.navigate(['/homepage']);
-      
-
     },
 
     error=>{
       console.log(error)
       this.loginApiError=error.error.message;
       console.log(this.loginApiError);
-      
-
-    
     });;
     
   }

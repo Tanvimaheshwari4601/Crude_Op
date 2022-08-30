@@ -33,5 +33,12 @@ export class UserService {
       password : password
     })
   }
+
+  getLoggedInUser(){
+    const userData = localStorage.getItem('userData')
+    if (!userData) return null;
+
+    return JSON.parse(userData);
+  }
   
 }

@@ -1,10 +1,14 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddProductComponent } from './add-product/add-product.component';
 import { AuthenticationGuard } from './authentication.guard';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { HeaderComponent } from './header/header.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginUserComponent } from './login-user/login-user.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserListComponent } from './user-list/user-list.component';
@@ -27,7 +31,11 @@ const routes: Routes = [
     },
     {path:'update-user/:id', component:UpdateUserComponent},
     {path:'create-user', component:CreateUserComponent},
-    {path: 'user-details/:id', component: UserDetailsComponent}
+    {path: 'user-details/:id', component: UserDetailsComponent},
+    {path: 'Add-Product', component:AddProductComponent},
+    {path: 'product-list', component:ProductListComponent},
+    {path: 'update-product/:id', component:UpdateProductComponent},
+    {path: 'product-details/:id', component:ProductDetailsComponent}
 
   ]}
 

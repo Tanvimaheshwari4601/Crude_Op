@@ -31,16 +31,7 @@ export class CreateUserComponent implements OnInit {
 
     console.log(this.registrationAPIerror);  });
   }
-  // setup(){
-  //   const parent = this.el.nativeElement.parentNode;
-  //   const span = document.createElement('span');
-  //   span.innerHTML = `Show password`;
-  //   span.addEventListener('click' , (event)=>{
-  //     alert('you just clicked me, you need to toggle view')
-  //   });
-  //   parent.appendChild(span);
-  // }
-
+ 
   gotoUserList(){
     this.router.navigate(['/users']);
   }
