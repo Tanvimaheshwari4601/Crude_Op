@@ -17,6 +17,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 
@@ -33,7 +34,9 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     AddProductComponent,
     ProductListComponent,
     UpdateProductComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    SidebarComponent,
+    
   ],
   imports: [
     BrowserModule,

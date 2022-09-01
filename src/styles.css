@@ -5,3 +5,8 @@ html, body{
 .customModal{
     background-color: #0e0e0e87;
 }
+
+.router-outlet + * {
+   margin-left: 200px;
+    /* your css */
+  }

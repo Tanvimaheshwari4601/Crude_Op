@@ -8,6 +8,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
@@ -35,7 +36,8 @@ const routes: Routes = [
     {path: 'Add-Product', component:AddProductComponent},
     {path: 'product-list', component:ProductListComponent},
     {path: 'update-product/:id', component:UpdateProductComponent},
-    {path: 'product-details/:id', component:ProductDetailsComponent}
+    {path: 'product-details/:id', component:ProductDetailsComponent},
+    {path: 'sidenav', component:SidebarComponent}
 
   ]}
 

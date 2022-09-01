@@ -1,5 +1,5 @@
-<div class="col-md-6 offset-md-3">
-    <h3>Add New Product</h3>
+<div class="col-md-6 offset-md-3 p-3">
+    <h3 class="text-center">Add New Product</h3>
     <form (ngSubmit)="onAdd()" #productForm="ngForm">
     <div class="form-group my-2">
         <label>Product Title</label>
@@ -28,7 +28,12 @@
         <input type="file" class="custom-file-input form-control" name="imgURL" id="imgUrl" [(ngModel)]="product.imgURL">
         <label class="custom-file-label" for="customFile">Choose file</label>
       </div>
-      <button [disabled]="productForm.form.invalid" class = "btn btn-success" type ="submit" >Submit</button>
+
+      <div class="text-center">
+
+        
+          <button [disabled]="productForm.form.invalid" class = "btn btn-success" type ="submit" >Submit</button>
+    </div>
     </form>
 
 

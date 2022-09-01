@@ -1,0 +1,22 @@
+<div  class="sidebar-nav " style="width:200px">
+    <div class="d-flex w-auto flex-column p-1">
+ 
+
+              <ul class="nav nav-tabs menu d-flex">
+                <li *ngIf="savedUser.role == 'Admin'">
+                  <a class="active-link" routerLink="/homepage/users" routerLinkActive="active-link"
+                    [routerLinkActiveOptions]="{exact: true}">Users
+                  </a>
+                </li>
+                <li>
+                  <a routerLink="/homepage/product-list" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+                    Products
+                  </a>
+                </li>
+               
+              </ul>
+
+    </div>   
+
+    
+</div>
