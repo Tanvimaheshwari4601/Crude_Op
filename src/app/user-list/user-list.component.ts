@@ -9,17 +9,20 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
+  savedUser : any;
   user: User[] = []; 
   constructor(private userService:UserService,private router:Router) { }
 
   
  
   ngOnInit(): void {
+    this.savedUser=this.userService.getLoggedInUser();
     this.getUsers();
   }
 
   private getUsers(){
-    this.userService.getUserList().subscribe(data => {
+
+    this.userService.getApprovedUsers(this.savedUser.id).subscribe(data => {
       this.user = data;
     });
   }

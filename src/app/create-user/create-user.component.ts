@@ -33,7 +33,7 @@ export class CreateUserComponent implements OnInit {
   }
  
   gotoUserList(){
-    this.router.navigate(['/users']);
+    this.router.navigate(['/homepage/users']);
   }
   onSubmit(){
     console.log(this.user);

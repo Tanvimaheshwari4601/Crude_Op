@@ -3,7 +3,7 @@
  
 
               <ul class="nav nav-tabs menu d-flex">
-                <li *ngIf="savedUser.role == 'Admin'">
+                <li *ngIf="savedUser.role != 'User'">
                   <a class="active-link" routerLink="/homepage/users" routerLinkActive="active-link"
                     [routerLinkActiveOptions]="{exact: true}">Users
                   </a>
@@ -13,8 +13,14 @@
                     Products
                   </a>
                 </li>
+                <li *ngIf="savedUser.role == 'SuperAdmin'">
+                  <a routerLink="/homepage/new-admin-request" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact : true}">
+                    New Admin Request
+                  </a>
+                </li>
                
               </ul>
+              <!-- *ngIf="savedUser.role == 'Admin'" -->
 
     </div>   
 

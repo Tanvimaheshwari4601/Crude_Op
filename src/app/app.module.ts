@@ -18,6 +18,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { NewAdminRequestComponent } from './new-admin-request/new-admin-request.component';
 
 
 
@@ -36,6 +37,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     UpdateProductComponent,
     ProductDetailsComponent,
     SidebarComponent,
+    NewAdminRequestComponent,
     
   ],
   imports: [

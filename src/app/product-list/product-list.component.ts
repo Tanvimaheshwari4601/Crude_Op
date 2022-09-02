@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-product-list',
@@ -9,14 +10,18 @@ import { ProductService } from '../product.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+  loggedinUser : any;
 
   productList : Product[] =[];
   selectedProduct : any = {};
   constructor(private productService: ProductService,
+    private userService : UserService,
     private router : Router) { }
 
   ngOnInit(): void {
-    this.getProductList();    
+    this.getProductList();  
+    this.loggedinUser = this.userService.getLoggedInUser();
+      
   }
   displayStyle = "none";
   

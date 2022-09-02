@@ -6,6 +6,7 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { HeaderComponent } from './header/header.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginUserComponent } from './login-user/login-user.component';
+import { NewAdminRequestComponent } from './new-admin-request/new-admin-request.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -25,7 +26,7 @@ const routes: Routes = [
 
   {path:'homepage', component:HomepageComponent, canActivate:[AuthenticationGuard], children:[
     {
-      path:'', redirectTo:'users',pathMatch:'full'
+      path:'', redirectTo:'product-list',pathMatch:'full'
     },
     {
       path:'users', component:UserListComponent
@@ -37,7 +38,8 @@ const routes: Routes = [
     {path: 'product-list', component:ProductListComponent},
     {path: 'update-product/:id', component:UpdateProductComponent},
     {path: 'product-details/:id', component:ProductDetailsComponent},
-    {path: 'sidenav', component:SidebarComponent}
+    {path: 'sidenav', component:SidebarComponent},
+    {path: 'new-admin-request' , component : NewAdminRequestComponent}
 
   ]}
 

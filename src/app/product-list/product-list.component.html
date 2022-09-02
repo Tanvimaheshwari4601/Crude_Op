@@ -1,7 +1,7 @@
 
 <div class="d-flex justify-content-between p-2">
   <h2>Product List</h2>
-  <button routerLink="/homepage/Add-Product" class="btn" data-toggle="tooltip" data-placement="top" title="Add Product" routerLinkActive="active">
+  <button *ngIf="loggedinUser.role == 'Admin' || loggedinUser.role == 'SuperAdmin'" routerLink="/homepage/Add-Product" class="btn" data-toggle="tooltip" data-placement="top" title="Add Product" routerLinkActive="active">
 
   
 

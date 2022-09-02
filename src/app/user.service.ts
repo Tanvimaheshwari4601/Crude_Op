@@ -13,6 +13,10 @@ export class UserService {
   getUserList():Observable<User[]>{
     return this.httpclient.get<User[]>(`${this.baseURL}`);
   }
+
+  getApprovedUsers(currentUserId : number): Observable<User[]>{
+    return this.httpclient.get<User[]>(`${this.baseURL}/getApprovedUsers/${currentUserId}`)
+  }
   createUser(user:User): Observable<object>{
     return this.httpclient.post(`${this.baseURL}`,user); 
   }
@@ -41,4 +45,13 @@ export class UserService {
     return JSON.parse(userData);
   }
   
+  getAdminList():Observable<User[]>{
+    return this.httpclient.get<User[]>(`${this.baseURL}/adminUser`);
+  }
+
+  // approveStatus(id: number): Observable<Object>{
+
+  //     return this.httpclient.patch(`${this.baseURL}/${id}`);
+    
+  // }
 }
