@@ -27,10 +27,13 @@
                 <td>{{product.imgURL}}</td>
                 <td>{{product.category}}</td>
                 <td>
-                    <button (click) = "updateProduct(product.productId)" class = "btn btn-info"> Update</button>  
-                    <button (click) = "openPopup(product)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                  <span *ngIf="loggedinUser.role == 'Admin' || loggedinUser.role == 'SuperAdmin'">
 
-                    <button (click) = "viewProduct(product.productId)" class = "btn btn-primary" style="margin-left: 10px"> View</button>              
+                  <button (click) = "updateProduct(product.productId)" class = "btn btn-info"> Update</button>  
+                  <button (click) = "openPopup(product)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                </span>
+                <button (click) = "viewProduct(product.productId)" class = "btn btn-primary" style="margin-left: 10px"> View</button>              
+
                 </td>
             </tr>
         </tbody>

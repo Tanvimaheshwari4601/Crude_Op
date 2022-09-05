@@ -6,6 +6,7 @@ export class User {
     city: string;
     phonenumber: String;
     role: String;
+    approved : Boolean;
    
     password:string;
 }

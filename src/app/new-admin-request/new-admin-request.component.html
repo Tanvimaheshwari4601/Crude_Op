@@ -25,7 +25,12 @@
                 <td>{{user.phonenumber}}</td>
                 <td>{{user.role}}</td>
                 <td>
-                    <button (click) = "openPopup(user)"  class="btn btn-info me-2">Status</button>
+                    <button  (click) = "openPopup(user)"  class="btn btn-info me-2">
+                        <div *ngIf="!user.approved; else elseBlock" >
+                            Update Status
+                        </div>
+                        <ng-template #elseBlock>Approved</ng-template>
+                        </button>
                     
                               
                 </td>
@@ -39,8 +44,14 @@
 
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title"></h4>
+                <div class="modal-header d-flex">
+                    <h4 class="modal-title">
+                        Are You sure?
+                    </h4>
+
+                    <div (click)="closePopup()">
+                        close
+                    </div>
                 </div>
                 <div class="modal-body">
                     <p>Do you want to continue?</p>
@@ -50,7 +61,10 @@
                    
                     <button type="button" class="btn btn-secondary" 
                     (click)="Approved()">
-                    Approve
+                    <span >
+                        Approve
+                    </span>
+                    
                     
                     </button>
                     <button type="button" class="btn btn-danger" (click)="deleteUser(selectedUser.id)">

@@ -46,12 +46,12 @@ export class UserService {
   }
   
   getAdminList():Observable<User[]>{
-    return this.httpclient.get<User[]>(`${this.baseURL}/adminUser`);
+    return this.httpclient.get<User[]>(`${this.baseURL}/getAdmins`);
   }
 
-  // approveStatus(id: number): Observable<Object>{
 
-  //     return this.httpclient.patch(`${this.baseURL}/${id}`);
-    
-  // }
+  approveAdmin(id : number) : Observable<object>{
+    return this.httpclient.post(`${this.baseURL}/${id}/approve`, {});
+
+  }  
 }

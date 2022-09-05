@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../user';
 import { UserService } from '../user.service';
 
@@ -11,14 +11,25 @@ import { UserService } from '../user.service';
 export class NewAdminRequestComponent implements OnInit {
 
   selectedUser : any;
+  
 
-
-
+  id!:number;
   user : User[]=[];
-
-  constructor(private router : Router, private userService : UserService) { }
+  us : User = new User();
+  currentLoggedInUser : User ;
+  constructor(private router : Router, 
+    private userService : UserService,
+    private route : ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.currentLoggedInUser = this.userService.getLoggedInUser();
+
+    // this.id = this.route.snapshot.params['id'];
+
+    this.userService.getUserById(this.currentLoggedInUser.id).subscribe(data => {
+      this.us = data;
+    },
+    error => console.log(error));
     this.getAdmin();
   }
 
@@ -37,7 +48,15 @@ export class NewAdminRequestComponent implements OnInit {
 
   }
   Approved(){
-    console.log(this.user);
+    console.log(this.us);
+
+    this.userService.approveAdmin(this.selectedUser.id).subscribe(data => {
+      this.router.navigate(['/users'])
+      
+    },
+    error =>console.log(error));
+    
+
 
   }
 
@@ -53,5 +72,5 @@ export class NewAdminRequestComponent implements OnInit {
       this.user = data;
     });
   }
-
+  
 }
