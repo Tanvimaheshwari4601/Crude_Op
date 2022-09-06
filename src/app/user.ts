@@ -8,5 +8,6 @@ export class User {
     role: String;
     approved : Boolean;
    
+    approvedStatus : string;
     password:string;
 }

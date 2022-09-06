@@ -11,11 +11,24 @@ import { UserService } from '../user.service';
 export class NewAdminRequestComponent implements OnInit {
 
   selectedUser : any;
-  
-
+  action : string;
   id!:number;
   user : User[]=[];
   us : User = new User();
+  statusMap: {[key: string]: {
+    [key : string] : string
+  }} = {
+    APPROVE : {
+      'title' : 'Approve',
+    },
+    'REJECT' : {
+      title : 'Reject',
+    },
+    'DELETE' : {
+      title : 'Delete',
+    }
+
+  }
   currentLoggedInUser : User ;
   constructor(private router : Router, 
     private userService : UserService,
@@ -35,9 +48,10 @@ export class NewAdminRequestComponent implements OnInit {
 
   displayStyle = "none";
   
-  openPopup(user : User) {
+  openPopup(user : User, action : string) {
     this.displayStyle = "block";
     this.selectedUser = user;
+    this.action = action;
   }
   closePopup() {
     this.displayStyle = "none";
@@ -47,22 +61,32 @@ export class NewAdminRequestComponent implements OnInit {
     this.router.navigate(['/homepage/new-admin-request'])
 
   }
-  Approved(){
+  approve(){
     console.log(this.us);
 
     this.userService.approveAdmin(this.selectedUser.id).subscribe(data => {
-      this.router.navigate(['/users'])
-      
+      this.getAdmin();
+
     },
     error =>console.log(error));
     
 
 
   }
+  deny(){
+    console.log(this.us);
+    this.userService.denyAdmin(this.selectedUser.id).subscribe(data => {
+      this.getAdmin();
 
-  deleteUser(id: number){
+    },
+    error => console.log(error));
     
-    this.userService.deleteUser(id).subscribe( data => {
+    
+  }
+
+  deleteUser(){
+    
+    this.userService.deleteUser(this.selectedUser.id).subscribe( data => {
       console.log(data);
       this.getAdmin();
     })
@@ -71,6 +95,18 @@ export class NewAdminRequestComponent implements OnInit {
     this.userService.getAdminList().subscribe(data => {
       this.user = data;
     });
+  }
+
+  handleAction(){
+    if(this.action == "APPROVE"){
+      this.approve();
+    } else if(this.action == "REJECT"){
+      this.deny();
+    } else if(this.action == "DELETE"){
+      this.deleteUser();
+    }
+    this.closePopup();
+
   }
   
 }

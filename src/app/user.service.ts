@@ -54,4 +54,8 @@ export class UserService {
     return this.httpclient.post(`${this.baseURL}/${id}/approve`, {});
 
   }  
+  denyAdmin(id : number) : Observable<object>{
+    return this.httpclient.post(`${this.baseURL}/${id}/deny`, {});
+
+  }  
 }
