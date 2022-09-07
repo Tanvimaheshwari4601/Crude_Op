@@ -21,7 +21,7 @@
         </tr>
     </thead>
         <tbody>
-            <tr *ngFor="let product of productList">
+            <tr *ngFor="let product of productList" class="data-row">
                 <td>{{product.productTitle}}</td>
                 <td>{{product.price}}</td>
                 <td>{{product.imgURL}}</td>
@@ -29,10 +29,10 @@
                 <td>
                   <span *ngIf="loggedinUser.role == 'Admin' || loggedinUser.role == 'SuperAdmin'">
 
-                  <button (click) = "updateProduct(product.productId)" class = "btn btn-info"> Update</button>  
-                  <button (click) = "openPopup(product)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                  <button (click) = "updateProduct(product.productId)" id="update-product-btn" class = "btn btn-info"> Update</button>  
+                  <button (click) = "openPopup(product)" class = "btn btn-danger" id="delete-product-btn" style="margin-left: 10px"> Delete</button>
                 </span>
-                <button (click) = "viewProduct(product.productId)" class = "btn btn-primary" style="margin-left: 10px"> View</button>              
+                <button (click) = "viewProduct(product.productId)" class = "btn btn-primary" id="view-product-btn" style="margin-left: 10px"> View</button>              
 
                 </td>
             </tr>

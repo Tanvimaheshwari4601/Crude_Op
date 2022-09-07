@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
 
@@ -23,7 +23,7 @@ export class UpdateProductComponent implements OnInit {
     this.productService.getProductById(this.id).subscribe(data=>{
       this.product=data;
     },
-    error=>console.log(error));;
+    error=>console.log(error));
     
   }
 
@@ -32,7 +32,7 @@ export class UpdateProductComponent implements OnInit {
     this.productService.updateProduct(this.id, this.product).subscribe(data =>{
       this.gotoProductList();
     },
-    error => console.log(error));;
+    error => console.log(error));
     
 
   }

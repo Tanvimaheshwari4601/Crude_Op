@@ -1,20 +1,18 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })
-export class HomepageComponent implements OnInit {
+export class HomepageComponent {
 
 
 
   isSidebarOpen: boolean = true;
 
-  constructor() { }
+ 
 
-  ngOnInit(): void {
-  }
 
   toggleSidebar(event : any){
     

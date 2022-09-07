@@ -26,7 +26,7 @@
         </tr>
     </thead>
         <tbody>
-            <tr *ngFor="let user of user">
+            <tr *ngFor="let user of user" class="data-row">
                 <td>{{user.firstname}}</td>
                 <td>{{user.lastname}}</td>
                 <td>{{user.emailid}}</td>
@@ -34,9 +34,9 @@
                 <td>{{user.phonenumber}}</td>
                 <td>{{user.role}}</td>
                 <td>
-                    <button (click) = "updateUser(user.id)" class = "btn btn-info"> Update</button>  
-                    <button (click) = "deleteUser(user.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
-                <button (click) = "userDetails(user.id)" class = "btn btn-primary" style="margin-left: 10px"> View</button>              
+                    <button (click) = "updateUser(user.id)" class = "btn btn-info" id="update-btn"> Update</button>  
+                    <button (click) = "deleteUser(user.id)" class = "btn btn-danger" style="margin-left: 10px" id="delete-btn"> Delete</button>
+                <button (click) = "userDetails(user.id)" class = "btn btn-primary" style="margin-left: 10px" id="view-btn"> View</button>              
                 </td>
             </tr>
         </tbody>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
@@ -9,7 +9,7 @@ import { UserService } from '../user.service';
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.css']
 })
-export class AddProductComponent implements OnInit {
+export class AddProductComponent {
 
   product : Product=new Product();
   Category=['Clothing', 'Electronics', 'Electrical', 'Grocery', 'Footwear'];
@@ -18,8 +18,7 @@ export class AddProductComponent implements OnInit {
     private userService : UserService,
     private router:Router) { }
 
-  ngOnInit(): void {
-  }
+  
   
 
   saveProduct(){
@@ -35,9 +34,7 @@ export class AddProductComponent implements OnInit {
       
       
       this.gotoUserList();
-      
     
-
   }
 
   gotoUserList(){

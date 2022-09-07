@@ -4,9 +4,9 @@ export class User {
     lastname: string;
     emailid: string;
     city: string;
-    phonenumber: String;
-    role: String;
-    approved : Boolean;
+    phonenumber: string;
+    role: string;
+    approved : boolean;
    
     approvedStatus : string;
     password:string;

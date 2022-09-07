@@ -1,5 +1,4 @@
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ProductService } from '../product.service';
@@ -7,9 +6,10 @@ import { UserService } from '../user.service';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { ProductListComponent } from './product-list.component';
+import { productData } from '../test-utils';
 
-var mock = (function() {
-  var store:any = {
+let mock = (function() {
+  let store:any = {
     userData : JSON.stringify({
       role : 'Admin'
     })
@@ -58,4 +58,69 @@ describe('ProductListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('Should show 3 items in list', () => {
+    component.productList = [
+      productData('Heels', '560' , 'Footwear'),
+      productData('Microwave', '5000' , 'Electronics'),
+      productData('PenDrive','2500', 'Electronics')
+    ];
+
+    fixture.detectChanges();
+
+    const product = fixture.debugElement.nativeElement.querySelectorAll('.data-row');
+    
+    expect(product.length).toEqual(3);
+
+  })
+
+  it('should call update product', () => {
+    component.productList = [
+      productData('Heels', '560' , 'Footwear'),
+      productData('Microwave', '5000' , 'Electronics'),
+      productData('PenDrive','2500', 'Electronics')
+    ];
+
+    fixture.detectChanges();
+    const spyUpdateProduct = spyOn(component, 'updateProduct');
+    const updateProductBtn = fixture.debugElement.nativeElement.querySelector('#update-product-btn');
+    console.log(updateProductBtn);
+    updateProductBtn.click();
+    
+    expect(spyUpdateProduct).toHaveBeenCalled();
+
+  })
+
+  it('should call delete product', () => {
+    component.productList = [
+      productData('Heels', '560' , 'Footwear'),
+      productData('Microwave', '5000' , 'Electronics'),
+      productData('PenDrive','2500', 'Electronics')
+    ];
+
+    fixture.detectChanges();
+    const spyDeleteProduct = spyOn(component, 'openPopup');
+    const DeleteProductBtn = fixture.debugElement.nativeElement.querySelector('#delete-product-btn');
+    console.log(DeleteProductBtn);
+    DeleteProductBtn.click();
+    
+    expect(spyDeleteProduct).toHaveBeenCalled();
+
+  })
+
+  it('should call productDetails product', () => {
+    component.productList = [
+      productData('Heels', '560' , 'Footwear'),
+      productData('Microwave', '5000' , 'Electronics'),
+      productData('PenDrive','2500', 'Electronics')
+    ];
+
+    fixture.detectChanges();
+    const spyProductDetail = spyOn(component, 'viewProduct');
+    const productDetailBtn = fixture.debugElement.nativeElement.querySelector('#view-product-btn');
+    console.log(productDetailBtn);
+    productDetailBtn.click();
+    
+    expect(spyProductDetail).toHaveBeenCalled();
+
+  })
 });

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
@@ -11,6 +11,7 @@ import { UserService } from '../user.service';
 })
 export class ProductListComponent implements OnInit {
   loggedinUser : any;
+  
 
   productList : Product[] =[];
   selectedProduct : any = {};
@@ -44,14 +45,11 @@ export class ProductListComponent implements OnInit {
 
   updateProduct(id:number){
     console.log(id);
-    
-    this.router.navigate(['/homepage/update-product' , id])
-    
+       this.router.navigate(['/homepage/update-product' , id])   
   }
 
   viewProduct(id : number){
     this.router.navigate(['/homepage/product-details' , id])
-
   }
 
   deleteProduct(id: number){
@@ -63,11 +61,4 @@ export class ProductListComponent implements OnInit {
     
   })
   }
-
-  
-
-  
-
- 
-
 }

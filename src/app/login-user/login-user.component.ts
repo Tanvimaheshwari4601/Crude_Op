@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../user';
 import { UserService } from '../user.service';
@@ -8,16 +8,14 @@ import { UserService } from '../user.service';
   templateUrl: './login-user.component.html',
   styleUrls: ['./login-user.component.css']
 })
-export class LoginUserComponent implements OnInit {
+export class LoginUserComponent {
   user:User=new User();
-  loginApiError : String;
+  loginApiError : string;
 
   constructor(private userService:UserService,
     private router:Router) { }
 
-  ngOnInit(): void {
-    
-  }
+  
   
   onSubmit(){
     console.log(this.user);
@@ -32,7 +30,7 @@ export class LoginUserComponent implements OnInit {
       console.log(error)
       this.loginApiError=error.error.message;
       console.log(this.loginApiError);
-    });;
+    });
     
   }
 

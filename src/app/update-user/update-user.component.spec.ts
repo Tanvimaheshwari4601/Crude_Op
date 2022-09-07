@@ -5,7 +5,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { UserService } from '../user.service';
 
 import { UpdateUserComponent } from './update-user.component';
-import { By } from '@angular/platform-browser';
 
 describe('UpdateUserComponent', () => {
   let component: UpdateUserComponent;

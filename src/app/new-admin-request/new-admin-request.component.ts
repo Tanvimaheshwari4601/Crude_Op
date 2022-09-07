@@ -37,7 +37,6 @@ export class NewAdminRequestComponent implements OnInit {
   ngOnInit(): void {
     this.currentLoggedInUser = this.userService.getLoggedInUser();
 
-    // this.id = this.route.snapshot.params['id'];
 
     this.userService.getUserById(this.currentLoggedInUser.id).subscribe(data => {
       this.us = data;

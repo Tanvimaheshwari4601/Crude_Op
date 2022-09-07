@@ -30,7 +30,7 @@ export class UserService {
   deleteUser(id: number): Observable<Object>{
     return this.httpclient.delete(`${this.baseURL}/${id}`);
   }
-  loginUser(emailid: String, password: String): Observable<Object>{
+  loginUser(emailid: string, password: string): Observable<Object>{
     
     return this.httpclient.post(`${this.baseURL}/login`, {
       emailid : emailid ,

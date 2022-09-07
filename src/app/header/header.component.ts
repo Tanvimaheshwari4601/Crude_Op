@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   @Output() toggleSidebar = new EventEmitter<string>();
 
@@ -14,8 +14,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router:Router) { }
 
-  ngOnInit(): void {
-  }
+  
   logout(){
     localStorage.clear();
     this.router.navigate(['/login-user']);
