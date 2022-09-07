@@ -70,7 +70,8 @@
                     Close
                 </button>
                 <button *ngIf="action"
-                (click)="handleAction()"
+                id="action-btn"
+                (click)="handleAction(action)"
                 type="button" [ngClass]="{ 'btn-dark' : action == 'REJECT', 'btn-success' : action == 'APPROVE', 'btn-danger' : action == 'DELETE'}" 
                 class="btn" >
 

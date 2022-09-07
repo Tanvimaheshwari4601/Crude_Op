@@ -30,7 +30,7 @@ Object.defineProperty(window, 'localStorage', {
   value: mock,
 });
 
-describe('NewAdminRequestComponent', () => {
+fdescribe('NewAdminRequestComponent', () => {
   let component: NewAdminRequestComponent;
   let fixture: ComponentFixture<NewAdminRequestComponent>;
 
@@ -84,7 +84,7 @@ describe('NewAdminRequestComponent', () => {
     console.log(rejectBtn);
     rejectBtn.click();
     
-    expect(spyRejectAdmin).toHaveBeenCalled();
+    expect(spyRejectAdmin.calls.argsFor(0)[1]).toEqual('REJECT')
 
   })
 
@@ -101,7 +101,7 @@ describe('NewAdminRequestComponent', () => {
     console.log(DeleteBtn);
     DeleteBtn.click();
     
-    expect(spyDeleteUser).toHaveBeenCalled();
+    expect(spyDeleteUser.calls.argsFor(0)[1]).toEqual('DELETE');
 
   })
 
@@ -118,7 +118,36 @@ describe('NewAdminRequestComponent', () => {
     console.log(approveAdmin);
     approveAdmin.click();
     
-    expect(spyApproveAdmin).toHaveBeenCalled();
+    expect(spyApproveAdmin.calls.argsFor(0)[1]).toEqual('APPROVE');
+
+  })
+
+
+  it('should call approve method if Approve button pressed', () => {
+    component.user = [
+      userData('Tanvi', 'PENDING'),
+      userData('Raj', 'APPROVED'),
+      userData('Patel', 'REJECTED')
+    ];
+
+    fixture.detectChanges();
+    const spyHandleAction = spyOn(component, 'handleAction');
+    const spyApprove = spyOn(component, 'approve');
+    const approveAdmin = fixture.debugElement.nativeElement.querySelector('#appove-btn');
+    console.log(approveAdmin);
+    approveAdmin.click();
+    
+    expect(component.action).toEqual('APPROVE');
+    fixture.detectChanges();
+    const actionBtn = fixture.debugElement.nativeElement.querySelector('#action-btn');
+    console.log(actionBtn);
+    actionBtn.click();
+    expect(spyHandleAction).toHaveBeenCalled();
+    console.log(spyHandleAction.calls.argsFor(0));
+    
+    expect(spyApprove).toHaveBeenCalled();
+    
+
 
   })
 });

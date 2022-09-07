@@ -96,7 +96,7 @@ export class NewAdminRequestComponent implements OnInit {
     });
   }
 
-  handleAction(){
+  handleAction(action:string){
     if(this.action == "APPROVE"){
       this.approve();
     } else if(this.action == "REJECT"){
