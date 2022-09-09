@@ -20,19 +20,19 @@ export class UpdateProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.id=this.route.snapshot.params['id'];
-    this.productService.getProductById(this.id).subscribe(data=>{
-      this.product=data;
-    },
-    error=>console.log(error));
+    this.productService.getProductById(this.id).subscribe({
+      next : (data) =>{ this.product=data; },
+    error : (err) => { console.log(err) }
+    });
     
   }
 
   onUpdate(){
     console.log(this.product);
-    this.productService.updateProduct(this.id, this.product).subscribe(data =>{
-      this.gotoProductList();
-    },
-    error => console.log(error));
+    this.productService.updateProduct(this.id, this.product).subscribe({
+      next : (data) =>{ this.gotoProductList(); },
+    error : (err) => { console.log(err) }
+    });
     
 
   }

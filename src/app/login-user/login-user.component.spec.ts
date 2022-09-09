@@ -68,7 +68,7 @@ fdescribe('LoginUserComponent', () => {
     
     component.user.emailid = 'tm@gmail.com';
     component.user.password = 'hefhirhfj';
-    // component.login.controls['password'].setValue('hefhirhfj');
+    
     fixture.detectChanges();
     const spySubmitBtn = spyOn(component , 'onSubmit');
     const loginBtn = fixture.debugElement.nativeElement.querySelector('#login-btn');

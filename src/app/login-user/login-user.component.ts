@@ -25,7 +25,7 @@ export class LoginUserComponent {
       next : (data) => {console.log(data);
         localStorage.setItem('userData',JSON.stringify(data));
         localStorage.setItem('isloggedin','true');
-        this.router.navigate(['/hompage']); },
+        this.router.navigate(['/homepage']); },
       complete : () =>{console.log("complete") },
       error : (err) => { console.log(err);
       this.loginApiError = err.error.message;

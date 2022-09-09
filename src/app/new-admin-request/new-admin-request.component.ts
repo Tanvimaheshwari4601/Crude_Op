@@ -38,11 +38,13 @@ export class NewAdminRequestComponent implements OnInit {
     this.currentLoggedInUser = this.userService.getLoggedInUser();
 
 
-    this.userService.getUserById(this.currentLoggedInUser.id).subscribe(data => {
-      this.us = data;
-    },
-    error => console.log(error));
+    this.userService.getUserById(this.currentLoggedInUser.id).subscribe({
+      next : (data) => { this.us = data; },
+      error: (err) => { console.log(err);
+       }
+    }); 
     this.getAdmin();
+  
   }
 
   displayStyle = "none";
@@ -63,22 +65,19 @@ export class NewAdminRequestComponent implements OnInit {
   approve(){
     console.log(this.us);
 
-    this.userService.approveAdmin(this.selectedUser.id).subscribe(data => {
-      this.getAdmin();
-
-    },
-    error =>console.log(error));
-    
-
-
+    this.userService.approveAdmin(this.selectedUser.id).subscribe({
+      next: (data) => { console.log(data);
+        this.getAdmin();},
+        error: (err) => { console.log(err) }, 
+    });
   }
   deny(){
     console.log(this.us);
-    this.userService.denyAdmin(this.selectedUser.id).subscribe(data => {
-      this.getAdmin();
-
-    },
-    error => console.log(error));
+    this.userService.denyAdmin(this.selectedUser.id).subscribe({
+      next: (data) => { console.log(data);
+        this.getAdmin();},
+        error: (err) => { console.log(err) }, 
+    });
     
     
   }
@@ -93,6 +92,8 @@ export class NewAdminRequestComponent implements OnInit {
   private getAdmin(){
     this.userService.getAdminList().subscribe(data => {
       this.user = data;
+      console.log(data);
+      
     });
   }
 

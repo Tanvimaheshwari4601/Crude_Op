@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../user';
 import { UserService } from '../user.service';
@@ -8,29 +8,26 @@ import { UserService } from '../user.service';
   templateUrl: './create-user.component.html',
   styleUrls: ['./create-user.component.css']
 })
-export class CreateUserComponent implements OnInit {
+export class CreateUserComponent  {
   Roles=['Admin', 'User'];
 
   user:User=new User();
-  registrationAPIerror :String;
+  registrationAPIerror :string;
   constructor(private userService: UserService,
     private router: Router) { }
 
-  ngOnInit(): void {
-  }
   saveUser(){
-    this.userService.createUser(this.user).subscribe(data=>{
-      console.log(data);
-      this.gotoUserList();
-    },
-    error=>{console.log(error)
-    this.registrationAPIerror=error.error.message;
-
-    console.log(this.registrationAPIerror);  });
+    this.userService.createUser(this.user).subscribe({
+      next : (data) => { console.log(data);
+        this.gotoUserList(); },
+        error : (err) => { console.log(err);
+          this.registrationAPIerror=err.error.message;
+          console.log(this.registrationAPIerror);}
+      });
   }
 
   gotoUserList(){
-    this.router.navigate(['/users']);
+    this.router.navigate(['/homepage/users']);
   }
   onSubmit(){
     console.log(this.user);

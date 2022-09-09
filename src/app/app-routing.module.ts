@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddProductComponent } from './add-product/add-product.component';
+import { AdminAuthenticationGuard } from './admin-authentication.guard';
 import { AuthenticationGuard } from './authentication.guard';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { HeaderComponent } from './header/header.component';
@@ -39,7 +40,7 @@ const routes: Routes = [
     {path: 'update-product/:id', component:UpdateProductComponent},
     {path: 'product-details/:id', component:ProductDetailsComponent},
     {path: 'sidenav', component:SidebarComponent},
-    {path: 'new-admin-request' , component : NewAdminRequestComponent}
+    {path: 'new-admin-request' , component : NewAdminRequestComponent, canActivate:[AdminAuthenticationGuard]}
 
   ]}
 
