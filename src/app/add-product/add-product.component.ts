@@ -28,12 +28,12 @@ export class AddProductComponent {
 
     console.log(this.product);    
 
-    this.productService.createProduct(this.product).subscribe(data =>{
-      console.log(data);},
-      error => console.log(error));
-      
-      
-      this.gotoUserList();
+    this.productService.createProduct(this.product).subscribe({
+      next: (data) => { console.log(data);
+      this.gotoUserList();},
+      complete: () => { console.log("complete") }, // completeHandler
+      error: (err) => { console.log(err) },    // errorHandler 
+  });
     
   }
 

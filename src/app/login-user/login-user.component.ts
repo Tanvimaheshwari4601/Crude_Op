@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../user';
 import { UserService } from '../user.service';
@@ -11,6 +12,7 @@ import { UserService } from '../user.service';
 export class LoginUserComponent {
   user:User=new User();
   loginApiError : string;
+  login : FormGroup;
 
   constructor(private userService:UserService,
     private router:Router) { }
@@ -19,18 +21,18 @@ export class LoginUserComponent {
   
   onSubmit(){
     console.log(this.user);
-    this.userService.loginUser(this.user.emailid, this.user.password).subscribe(data=>{
-      console.log(data);
-      localStorage.setItem('userData',JSON.stringify(data));
-      localStorage.setItem('isloggedin','true');
-      this.router.navigate(['/homepage']);
+    this.userService.loginUser(this.user.emailid, this.user.password).subscribe({
+      next : (data) => {console.log(data);
+        localStorage.setItem('userData',JSON.stringify(data));
+        localStorage.setItem('isloggedin','true');
+        this.router.navigate(['/hompage']); },
+      complete : () =>{console.log("complete") },
+      error : (err) => { console.log(err);
+      this.loginApiError = err.error.message;
+    console.log(this.loginApiError);
     },
 
-    error=>{
-      console.log(error)
-      this.loginApiError=error.error.message;
-      console.log(this.loginApiError);
-    });
+      });
     
   }
 
