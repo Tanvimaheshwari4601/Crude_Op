@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserListComponent } from './user-list/user-list.component';
@@ -19,6 +19,7 @@ import { UpdateProductComponent } from './update-product/update-product.componen
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NewAdminRequestComponent } from './new-admin-request/new-admin-request.component';
+import { HeadersInterceptor } from './headers.interceptor';
 
 
 
@@ -47,7 +48,12 @@ import { NewAdminRequestComponent } from './new-admin-request/new-admin-request.
     FormsModule
   ],
   providers: [
-    AuthenticationGuard
+    AuthenticationGuard,
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : HeadersInterceptor,
+      multi : true
+    }
   ],
   bootstrap: [AppComponent]
 }

@@ -33,7 +33,7 @@ export class UpdateUserComponent implements OnInit {
     this.userService.updateUser(this.id,this.user).subscribe({
       next: (data) => { console.log(data);
       this.gotoUserList();},
-      complete: () => { console.log("complete") }, // completeHandler
+      
       error: (err) => { console.log(err) },    // errorHandler 
   });
 }

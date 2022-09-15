@@ -1,10 +1,9 @@
-import { Component, NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AdminAuthenticationGuard } from './admin-authentication.guard';
 import { AuthenticationGuard } from './authentication.guard';
 import { CreateUserComponent } from './create-user/create-user.component';
-import { HeaderComponent } from './header/header.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { NewAdminRequestComponent } from './new-admin-request/new-admin-request.component';
