@@ -4,25 +4,21 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-
   @Output() toggleSidebar = new EventEmitter<string>();
 
+  constructor(private router: Router) {}
 
-
-  constructor(private router:Router) { }
-
-  
-  logout(){
+  logout() {
     localStorage.clear();
     this.router.navigate(['/login-user']);
-
-
   }
-  home(){
+  Dashboard() {
+    this.router.navigate(['/']);
+  }
+  home() {
     this.toggleSidebar.next('sf');
   }
-
 }

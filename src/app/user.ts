@@ -1,13 +1,18 @@
 export class User {
-    id:number;
-    firstname: string;
-    lastname: string;
-    emailid: string;
-    city: string;
-    phonenumber: string;
-    role: string;
-    approved : boolean;
-   
-    approvedStatus : string;
-    password:string;
+  id: number;
+  name: string;
+  emailid: string;
+  role: string;
+  password: string;
+  rollno: string;
+  department: string;
+  year: string;
+  sem: string;
+}
+
+export class Lectures {
+  id: number;
+  subject: string;
+  date: Date;
+  status: string;
 }

@@ -1,18 +1,98 @@
-<h3> View User Details</h3>
+<h3> {{user.name}} Detail</h3>
 <div>
     <div>
-        <label> <strong> First Name: </strong></label> {{user.firstname}}
+        <label> <strong> Roll Number: </strong></label> {{user.rollno}}
     </div>
     <div>
-        <label> <strong> Last Name: </strong></label> {{user.lastname}}
+        <label> <strong> Department: </strong></label> {{user.department}}
     </div>
     <div>
-        <label> <strong> Email Id: </strong></label> {{user.emailid}}
+        <label> <strong> Year: </strong></label> {{user.year}}
     </div>
     <div>
-        <label> <strong> City: </strong></label> {{user.city}}
+        <label> <strong> Sem: </strong></label> {{user.sem}}
     </div>
     <div>
-        <label> <strong> phone Number: </strong></label> {{user.phonenumber}}
+        <label> <strong> Email ID: </strong></label> {{user.emailid}}
     </div>
+    <div>
+        <label> <strong> Role: </strong></label> {{user.role}}
+    </div>
+    <div class="form-group my-2">
+        <form >
+            <div class="form-group my-2">
+                <label for="Department">Subject</label>
+                <select class="form-select" aria-label="Department selector">
+                    <option selected>Select Subject</option>
+                    <option value="1">Software Engineering</option>
+                    <option value="2">Theory of Computation</option>
+                    <option value="3">Digital Electronics</option>
+                    <option value="4">Digital Electronics</option>
+                </select>
+            </div>
+            <div>
+                <label >Date</label>
+                <input type="date">
+            </div>
+            <div>
+                <label >Status</label>
+                <select class="form-select" aria-label="Status selector">
+                    <option selected>Select Status</option>
+                    <option value="1">Absent</option>
+                    <option value="2">Present</option>
+                </select>
+            </div>
+
+        </form>
+       <h1>
+        Attendance Sheet according to subject
+       </h1>
+           <div>
+            <label> Software Engineering</label>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+            </table>
+           </div>
+           <div>
+            <label> Theory of Computation</label>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+            </table>
+           </div>
+           <div>
+            <label> Digital Electronics</label>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+            </table>
+           </div>
+           <div>
+            <label> Operating System</label>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+            </table>
+           </div>
+    </div>
+    <table>
+
+    </table>
 </div>

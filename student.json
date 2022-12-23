@@ -1,0 +1,30 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "student1",
+      "emailid": "user1@testmail.com",
+      "rollno": "19EGICS112",
+      "password": "user1",
+      "role": "STUDENT",
+      "department": "Computer Science and Engineering",
+      "year": "III",
+      "sem": "7th;"
+    },
+    {
+      "id": 2,
+      "name": "teacher",
+      "emailid": "teacher@testmail.com",
+      "password": "teacher",
+      "role": "TEACHER"
+    }
+  ],
+  "Lectures": [
+    {
+      "id": 1,
+      "subject": "Software Engineering",
+      "date": "29/06/2021",
+      "status": "Present"
+    }
+  ]
+}

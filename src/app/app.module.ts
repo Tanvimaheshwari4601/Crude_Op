@@ -20,6 +20,10 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NewAdminRequestComponent } from './new-admin-request/new-admin-request.component';
 import { HeadersInterceptor } from './headers.interceptor';
+import { StudentAttendanceListComponent } from './student-attendance-list/student-attendance-list.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
+import { TeacherDashboardComponent } from './teacher-dashboard/teacher-dashboard.component';
 
 
 
@@ -39,6 +43,10 @@ import { HeadersInterceptor } from './headers.interceptor';
     ProductDetailsComponent,
     SidebarComponent,
     NewAdminRequestComponent,
+    StudentAttendanceListComponent,
+    DashboardComponent,
+    StudentDashboardComponent,
+    TeacherDashboardComponent,
     
   ],
   imports: [

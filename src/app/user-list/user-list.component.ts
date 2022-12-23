@@ -6,38 +6,35 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+  styleUrls: ['./user-list.component.css'],
 })
 export class UserListComponent implements OnInit {
-  savedUser : any;
-  user: User[] = []; 
-  constructor(private userService:UserService,private router:Router) { }
+  savedUser: any;
+  user: User[] = [];
+  constructor(private userService: UserService, private router: Router) {}
 
-  
- 
   ngOnInit(): void {
-    this.savedUser=this.userService.getLoggedInUser();
+    this.savedUser = this.userService.getLoggedInUser();
     this.getUsers();
   }
 
-  private getUsers(){
-
-    this.userService.getApprovedUsers(this.savedUser.id).subscribe(data => {
+  private getUsers() {
+    this.userService.getApprovedUsers(this.savedUser.id).subscribe((data) => {
       this.user = data;
     });
   }
-  userDetails(id: number){
+  userDetails(id: number) {
     this.router.navigate(['homepage/user-details', id]);
   }
 
-  updateUser(id: number){
+  updateUser(id: number) {
     this.router.navigate(['homepage/update-user', id]);
   }
 
-  deleteUser(id: number){
-    this.userService.deleteUser(id).subscribe( data => {
+  deleteUser(id: number) {
+    this.userService.deleteUser(id).subscribe((data) => {
       console.log(data);
       this.getUsers();
-    })
+    });
   }
 }

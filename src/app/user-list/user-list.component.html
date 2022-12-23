@@ -1,44 +1,69 @@
-<div class="d-flex justify-content-between p-2">
-    <h2>User List</h2>
-    <button *ngIf="savedUser.role == 'Admin' || savedUser.role == 'SuperAdmin'" routerLink="/homepage/create-user" class="btn" data-toggle="tooltip" data-placement="top" title="Add User" routerLinkActive="active">
-
+<div class="col-md-6 offset-md-3 p-3">
+    <h3 class="text-center">Attendance Details</h3>
+    <form action="">
+        <div class="form-group my-2">
+            <label for="Roll number">Roll Number</label><br>
     
+            <input type="
+                number" aria-label="Roll No.">    
+        </div>
+        <div class="form-group my-2">
+            <label for="Department">Department</label>
+            <select class="form-select" aria-label="Department selector">
+                <option selected>Select Department</option>
+                <option value="1">Computer Science and Engineering</option>
+                <option value="2">Civil Engineering</option>
+                <option value="3">Electronic Engineering</option>
+                <option value="3">Electric Engineering</option>
+                <option value="3">Mechanical Engineering</option>
+            </select>
+        </div>
+        <div class="form-group my-2">
+            <label for="month">Month</label>
+            <select class="form-select" aria-label="Month Selector">
+                <option selected>Select Month</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+        </div>
+        <div class="form-group my-2">
+            <label for="year">Year</label>
+            <select class="form-select" aria-label="Year Selector">
+                <option selected>Select Year</option>
+                <option value="1">I</option>
+                <option value="2">II</option>
+                <option value="3">III</option>
+                <option value="4">IV</option>
+            </select>
+        </div>
+        <div class="form-group my-2">
+            <label for="sem">Semester</label>
+            <select class="form-select" aria-label="Semester Selector">
+                <option selected>Select Sem</option>
+                <option value="1">1st</option>
+                <option value="2">2nd</option>
+                <option value="3">3rd</option>
+                <option value="4">4th</option>
+                <option value="5">5th</option>
+                <option value="6">6th</option>
+                <option value="7">7th</option>
+                <option value="8">8th</option>
+            </select>
+        </div>
+        <div class="text-center mt-2">
 
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
-            <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-            <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-          </svg>
-        </button>
-    
+            <button class = "btn btn-success mt-2"  type ="submit">Submit</button>
+        </div>
+</form>
 </div>
 
-
-<table class="table table=striped">
-    <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email-Id</th>
-            <th>City</th>
-            <th>Phone Number</th>
-            <th>Role</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-        <tbody>
-            <tr *ngFor="let user of user" class="data-row">
-                <td>{{user.firstname}}</td>
-                <td>{{user.lastname}}</td>
-                <td>{{user.emailid}}</td>
-                <td>{{user.city}}</td>
-                <td>{{user.phonenumber}}</td>
-                <td>{{user.role}}</td>
-                <td>
-                    <button (click) = "updateUser(user.id)" class = "btn btn-info" id="update-btn"> Update</button>  
-                    <button (click) = "deleteUser(user.id)" class = "btn btn-danger" style="margin-left: 10px" id="delete-btn"> Delete</button>
-                <button (click) = "userDetails(user.id)" class = "btn btn-primary" style="margin-left: 10px" id="view-btn"> View</button>              
-                </td>
-            </tr>
-        </tbody>
-    </table>
-   
