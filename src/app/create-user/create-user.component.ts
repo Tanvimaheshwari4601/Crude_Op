@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../user';
 import { UserService } from '../user.service';
+import { DEPARTMENTS, SEMS, YEARS } from '../utils';
 
 @Component({
   selector: 'app-create-user',
@@ -12,6 +13,9 @@ export class CreateUserComponent {
   Roles = ['TEACHER', 'STUDENT'];
 
   user: User = new User();
+  years = YEARS;
+  departments = DEPARTMENTS;
+  sems = SEMS;
   registrationAPIerror: string;
   constructor(private userService: UserService, private router: Router) {}
 

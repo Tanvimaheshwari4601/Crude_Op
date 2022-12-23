@@ -18,16 +18,21 @@
                                     <input type="password" id="typePasswordX-2" required #password="ngModel" class="form-control form-control-lg" [(ngModel)]="user.password" name="Password">
                                 </div>
                                 
+                                    <div class="text-center">
 
-                                    <button [disabled]="userForm.form.invalid" class = "btn btn-primary" id="login-btn"
-                                     type ="submit">Login</button>
+                                        <button [disabled]="userForm.form.invalid" class = "btn btn-primary" id="login-btn"
+                                         type ="submit">Login</button>
+                                    </div>
                                 
                             </form>
                     
                             <div class="text-danger my-2 text-center">
                         {{loginApiError}}
                             </div>
-                        <a routerLink="/registration">Create an account</a>
+                            <div class="text-center">
+
+                                <a routerLink="/registration">Create an account</a>
+                            </div>
 
                     </div>
                 </div>

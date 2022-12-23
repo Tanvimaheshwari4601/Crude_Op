@@ -3,14 +3,14 @@
  
 
               <ul class="nav nav-tabs menu d-flex">
-                <li *ngIf="savedUser.role != 'User'">
-                  <a class="active-link" routerLink="/homepage/users" routerLinkActive="active-link"
-                    [routerLinkActiveOptions]="{exact: true}">Attendance
+                <li *ngIf="savedUser.role != 'STUDENT'">
+                  <a class="active-link" routerLink="/homepage/dashboard" routerLinkActive="active-link"
+                    [routerLinkActiveOptions]="{exact: true}">Dashboard
                   </a>
                 </li>
-                <li>
-                  <a routerLink="/homepage/product-list" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
-                    Products
+                <li *ngIf="savedUser.role != 'STUDENT'"> 
+                  <a routerLink="/homepage/mark-att" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+                    Mark Attendance
                   </a>
                 </li>
                 <li *ngIf="savedUser.role == 'SuperAdmin'">

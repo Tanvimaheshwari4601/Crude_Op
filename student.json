@@ -1,30 +1,51 @@
 {
-  "students": [
+  "users": [
     {
-      "id": 1,
-      "name": "student1",
-      "emailid": "user1@testmail.com",
-      "rollno": "19EGICS112",
-      "password": "user1",
-      "role": "STUDENT",
-      "department": "Computer Science and Engineering",
-      "year": "III",
-      "sem": "7th;"
+      "role": "TEACHER",
+      "name": "Tutor",
+      "password": "tutor123",
+      "emailid": "tutor@testmail.com",
+      "rollno": "454646",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "teacher",
-      "emailid": "teacher@testmail.com",
-      "password": "teacher",
-      "role": "TEACHER"
+      "role": "TEACHER",
+      "name": "tutornew",
+      "password": "tutorpassword",
+      "emailid": "tutor1@testmail.com",
+      "rollno": "44114",
+      "id": 2
+    },
+    {
+      "role": "STUDENT",
+      "name": "student",
+      "password": "student1",
+      "emailid": "student@testmail.com",
+      "rollno": "101",
+      "department": "1",
+      "year": "2",
+      "sem": "3",
+      "id": 3
+    },
+    {
+      "role": "STUDENT",
+      "name": "studentnew",
+      "password": "student2",
+      "emailid": "student2@testmail.com",
+      "rollno": "102",
+      "department": "1",
+      "year": "3",
+      "sem": "5",
+      "id": 4
     }
   ],
-  "Lectures": [
+  "lectures": [
     {
-      "id": 1,
-      "subject": "Software Engineering",
-      "date": "29/06/2021",
-      "status": "Present"
+      "date": "2022-12-24",
+      "status": "1",
+      "subject": "1",
+      "studentId": 3,
+      "id": 1
     }
   ]
 }

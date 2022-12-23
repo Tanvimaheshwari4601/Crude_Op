@@ -28,7 +28,14 @@ export class LoginUserComponent {
           } else {
             localStorage.setItem('userData', JSON.stringify(data[0]));
             localStorage.setItem('isloggedin', 'true');
-            this.router.navigate(['/homepage']);
+            
+            if(data[0].role == 'TEACHER'){
+
+              this.router.navigate(['/homepage']);
+            }else{
+              this.router.navigate(['homepage/user-details', data[0].id]);
+            }
+
           }
         },
         complete: () => {

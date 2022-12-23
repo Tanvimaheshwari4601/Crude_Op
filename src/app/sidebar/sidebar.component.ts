@@ -18,7 +18,7 @@ export class SidebarComponent implements OnInit {
    this.savedUser = this.userService.getLoggedInUser();
 
    if(this.savedUser.role == 'User'){
-    this.router.navigate(['/homepage/product-list'])
+    this.router.navigate(['/homepage/mark-att'])
    }
   }
 

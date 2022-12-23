@@ -10,14 +10,14 @@
           </tr>
         </thead>
         <tbody>
-            <tr  class="data-row">
-                <td>19EGICS112</td>
-                <td>Computer Science and Engineering</td>
-                <td>IV</td>
-                <td>7th</td>
+            <tr *ngFor="let st of students"  class="data-row">
+                <td>{{st.rollno}}</td>
+                <td>{{st.departmentLabel}}</td>
+                <td>{{st.yearLabel}}</td>
+                <td>{{st.semLabel}}</td>
                
                 <td>
-                <button  class = "btn btn-primary" style="margin-left: 10px" id="view-btn"> View</button>              
+                <button  (click)="userDetails(st.id)" class = "btn btn-primary" style="margin-left: 10px" id="view-btn"> View</button>              
                 </td>
 
             </tr>

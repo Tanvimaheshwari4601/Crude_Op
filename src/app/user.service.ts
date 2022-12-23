@@ -7,13 +7,17 @@ import { User } from './user';
   providedIn: 'root',
 })
 export class UserService {
-  private baseURL = 'http://localhost:3001/students';
+  private baseURL = 'http://localhost:3001/users';
 
   constructor(private httpclient: HttpClient) {}
-  getUserList(): Observable<User[]> {
-    return this.httpclient.get<User[]>(`${this.baseURL}`);
+  getStudentList(): Observable<User[]> {
+    return this.httpclient.get<User[]>(`${this.baseURL}?role=STUDENT`);
   }
 
+  getStudentListFiltered(fltr=''): Observable<User[]> {
+    return this.httpclient.get<User[]>(`${this.baseURL}?${fltr}`);
+  }
+  
   getApprovedUsers(currentUserId: number): Observable<User[]> {
     return this.httpclient.get<User[]>(
       `${this.baseURL}/getApprovedUsers/${currentUserId}`
@@ -55,4 +59,5 @@ export class UserService {
   denyAdmin(id: number): Observable<object> {
     return this.httpclient.post(`${this.baseURL}/${id}/deny`, {});
   }
+
 }

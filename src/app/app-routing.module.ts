@@ -7,6 +7,7 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginUserComponent } from './login-user/login-user.component';
+import { MarkAttendenceComponent } from './mark-attendence/mark-attendence.component';
 import { NewAdminRequestComponent } from './new-admin-request/new-admin-request.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductListComponent } from './product-list/product-list.component';
@@ -41,6 +42,7 @@ const routes: Routes = [
       { path: 'update-user/:id', component: UpdateUserComponent },
       { path: 'create-user', component: CreateUserComponent },
       { path: 'user-details/:id', component: UserDetailsComponent },
+      {path : 'mark-att' ,  component : MarkAttendenceComponent},
       { path: 'Add-Product', component: AddProductComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'update-product/:id', component: UpdateProductComponent },

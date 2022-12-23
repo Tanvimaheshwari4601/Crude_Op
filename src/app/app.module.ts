@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { CreateUserComponent } from './create-user/create-user.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { LoginUserComponent } from './login-user/login-user.component';
@@ -24,7 +24,8 @@ import { StudentAttendanceListComponent } from './student-attendance-list/studen
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 import { TeacherDashboardComponent } from './teacher-dashboard/teacher-dashboard.component';
-
+import { MarkAttendenceComponent } from './mark-attendence/mark-attendence.component';
+import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 
 
 @NgModule({
@@ -47,13 +48,16 @@ import { TeacherDashboardComponent } from './teacher-dashboard/teacher-dashboard
     DashboardComponent,
     StudentDashboardComponent,
     TeacherDashboardComponent,
+    MarkAttendenceComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [
     AuthenticationGuard,
