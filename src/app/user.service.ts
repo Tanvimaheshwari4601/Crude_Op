@@ -17,7 +17,7 @@ export class UserService {
   getStudentListFiltered(fltr=''): Observable<User[]> {
     return this.httpclient.get<User[]>(`${this.baseURL}?${fltr}`);
   }
-  
+
   getApprovedUsers(currentUserId: number): Observable<User[]> {
     return this.httpclient.get<User[]>(
       `${this.baseURL}/getApprovedUsers/${currentUserId}`
@@ -29,6 +29,12 @@ export class UserService {
   getUserById(id: number): Observable<User> {
     return this.httpclient.get<User>(`${this.baseURL}/${id}`);
   }
+
+  getUserFltr(fltr: string): Observable<User[]> {
+    return this.httpclient.get<User[]>(`${this.baseURL}?${fltr}`);
+  }
+  
+
   updateUser(id: number, user: User): Observable<Object> {
     return this.httpclient.put(`${this.baseURL}/${id}`, user);
   }

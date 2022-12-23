@@ -20,17 +20,27 @@ export class CreateUserComponent {
   constructor(private userService: UserService, private router: Router) {}
 
   saveUser() {
-    this.userService.createUser(this.user).subscribe({
-      next: (data) => {
-        console.log(data);
-        this.gotoUserList();
-      },
-      error: (err) => {
-        console.log(err);
-        this.registrationAPIerror = err.error.message;
-        console.log(this.registrationAPIerror);
-      },
-    });
+
+    this.userService.getUserFltr(`emailid=${this.user.emailid}`).subscribe({
+      next : (data) =>{
+        if(data.length == 0){
+          this.userService.createUser(this.user).subscribe({
+            next: (data) => {
+              console.log(data);
+              this.gotoUserList();
+            },
+            error: (err) => {
+              console.log(err);
+              this.registrationAPIerror = err.error.message;
+              console.log(this.registrationAPIerror);
+            },
+          });
+      
+        }   else{
+          alert('User with same email already exists!!');
+        }     
+      }
+    })
   }
 
   gotoUserList() {

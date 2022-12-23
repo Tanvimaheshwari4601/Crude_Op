@@ -14,6 +14,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { UserDetailGuard } from './user-detail.guard';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserListComponent } from './user-list/user-list.component';
 
@@ -41,7 +42,7 @@ const routes: Routes = [
       },
       { path: 'update-user/:id', component: UpdateUserComponent },
       { path: 'create-user', component: CreateUserComponent },
-      { path: 'user-details/:id', component: UserDetailsComponent },
+      { path: 'user-details/:id', component: UserDetailsComponent, canActivate: [UserDetailGuard] },
       {path : 'mark-att' ,  component : MarkAttendenceComponent},
       { path: 'Add-Product', component: AddProductComponent },
       { path: 'dashboard', component: DashboardComponent },
